@@ -3,12 +3,12 @@ import Enunciado from '../assets/Enunciado.pdf';
 
 function Home() {
   return (
-    <section className="App-content">
+    <section className="pt-6 App-content">
       <h3 className="home-title">Haciendo uso de la API de Rick y Morty deberá desarrollar:</h3>
       <ul>
         <li>Barra de Búsqueda</li>
         <ul type="square">
-          <li>por personaje</li>
+          <li className='color:red'>por personaje</li>
           <li>por ubicación</li>
           <li>por episodio</li>
         </ul>

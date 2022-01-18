@@ -1,6 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
+import CharacterContext from "../../../context/Character/CharacterContext";
 
-const AllCharacters = ({ text, charactersFilter, cat }) => {
+const AllCharacters = () => {
+
+  const {text, charactersFilter} = useContext(CharacterContext)
+
   if (charactersFilter.length === 0)
     return <p>No hay coincidencias de personaje con "{text}"</p>;
 

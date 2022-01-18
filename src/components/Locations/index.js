@@ -1,6 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
+import CharacterContext from "../../context/Character/CharacterContext";
 
-function Locations({ text, locationsFilter, cat }) {
+function Locations() {
+
+  const {text,locationsFilter} = useContext(CharacterContext)
+
   if (locationsFilter.length === 0)
     return <p>No hay coincidencias de ubicaciones con "{text}"</p>;
 

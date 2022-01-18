@@ -4,7 +4,7 @@ import Filter from "../Filter";
 import AllCharacters from "./AllCharacters";
 import Locations from "../Locations";
 import Episodes from "../Episodes";
-import Create from "./Create"
+import CharacterContext from "../../context/Character/CharacterContext";
 
 function Characters() {
   const [characters, setCharacters] = useState([]);
@@ -13,6 +13,8 @@ function Characters() {
   const [episode, setEpisodeSingle] = useState([]);
   const [text, setText] = useState("");
   const [cat, setCategoria] = useState("");
+
+  const [charactersCreated, setCharactersCreated] = useState([]);
 
   useEffect(() => {
     const axiosCharacters = async () => {
@@ -42,6 +44,7 @@ function Characters() {
     axiosEpisodeSingle();
   }, []);
   console.log(episode);
+
   const charactersFilter = characters.filter((character) =>
     character.name.toLowerCase().includes(text.toLowerCase())
   );
@@ -54,34 +57,35 @@ function Characters() {
 
   return (
     <>
-      <Filter
-        text={text}
-        setText={setText}
-        cat={cat}
-        setCategoria={setCategoria}
-      />
-      <Create />
-      {cat === "Personaje" ? (
-        <AllCharacters
-          text={text}
-          charactersFilter={charactersFilter}
-          cat={cat}
-        />
-      ) : cat === "Ubicacion" ? (
-        <Locations text={text} locationsFilter={locationsFilter} cat={cat} />
-      ) : cat === "Episodio" ? (
-        <Episodes text={text} episodesFilter={episodesFilter} cat={cat} />
-      ) : (
-        <>
-          <AllCharacters
-            text={text}
-            charactersFilter={charactersFilter}
-            cat={cat}
-          />
-          <Locations text={text} locationsFilter={locationsFilter} cat={cat} />
-          <Episodes text={text} episodesFilter={episodesFilter} cat={cat} />
-        </>
-      )}
+      <CharacterContext.Provider
+        value={{
+          text,
+          setText,
+          cat,
+          setCategoria,
+          charactersFilter,
+          locationsFilter,
+          episodesFilter,
+          charactersCreated,
+          setCharactersCreated
+        }}
+      >
+        <Filter />
+
+        {cat === "Personaje" ? (
+          <AllCharacters />
+        ) : cat === "Ubicacion" ? (
+          <Locations />
+        ) : cat === "Episodio" ? (
+          <Episodes />
+        ) : (
+          <>
+            <AllCharacters />
+            <Locations />
+            <Episodes />
+          </>
+        )}
+      </CharacterContext.Provider>
     </>
   );
 }

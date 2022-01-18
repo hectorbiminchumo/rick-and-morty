@@ -1,6 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
+import CharacterContext from "../../context/Character/CharacterContext";
 
-function Filter({ text, setText, cat, setCategoria }) {
+function Filter() {
+
+
+  const {text, setText, cat, setCategoria} = useContext(CharacterContext)
+
   const handleInputChange = ({ target }) => {
     setText(target.value);
     console.log(target.value);

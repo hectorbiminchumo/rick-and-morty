@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const CharacterContext = createContext(null);
+const CharacterContext = createContext({});
 
 export default CharacterContext;

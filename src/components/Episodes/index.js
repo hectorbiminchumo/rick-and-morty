@@ -1,6 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
+import CharacterContext from "../../context/Character/CharacterContext";
 import { Link } from "react-router-dom";
-function Episodes({ text, episodesFilter, cat }) {
+function Episodes() {
+
+  const {text, episodesFilter} = useContext(CharacterContext)
+
   if (episodesFilter.length === 0)
     return <p>No hay coincidencias de episodios con "{text}"</p>;
 

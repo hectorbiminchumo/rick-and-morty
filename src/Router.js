@@ -6,12 +6,12 @@ import Characters from "./components/Characters";
 import Single from "./components/Episodes/Single";
 import Create from "./components/Characters/Create";
 import EpisodeState from "./context/Episode/EpisodeState";
-import CharacterState from "./context/Character/CharacterState";
+
 
 function Router() {
   return (
     <>
-      <CharacterState>
+      
         <EpisodeState>
           <BrowserRouter>
             <Routes>
@@ -24,7 +24,7 @@ function Router() {
             </Routes>
           </BrowserRouter>
         </EpisodeState>
-      </CharacterState>
+      
     </>
   );
 }

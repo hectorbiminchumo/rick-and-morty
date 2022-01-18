@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import CharacterContext from "../../context/Character/CharacterContext";
+import CharacterState from "../../context/Character/CharacterState"
 
 function Create() {
   const ctx = useContext(CharacterContext);
@@ -18,7 +19,7 @@ function Create() {
   //2. FORMULARIO
   const handleChange = (e) => {
     e.preventDefault();
-    setNewCharacter({
+    return setNewCharacter({
       ...newCharacter,
       [e.target.name]: e.target.value,
     });
@@ -29,12 +30,22 @@ function Create() {
   const addCharacter = (event) => {
     event.preventDefault();
 
+    setCharactersCreated([newCharacter, ...charactersCreated]);
+    setNewCharacter({
+      name: "",
+      gendre: "",
+      location: "",
+      image: "",
+    });
     setError(null);
+    
     createCharacter(newCharacter);
   };
 
+  console.log(charactersCreated);
   return (
     <>
+      <CharacterState />
       {/* FORMULARIO */}
       <div className="pl-96 pt-6">
         <form onSubmit={addCharacter}>

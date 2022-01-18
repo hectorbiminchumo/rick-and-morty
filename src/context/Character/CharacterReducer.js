@@ -3,7 +3,7 @@ const reducer = (globalState, action) => {
     case "CREATE_CHARACTER":
       return {
         ...globalState,
-        characterState: action.payload,
+        arrCharacter: [action.payload],
       };
 
     default:

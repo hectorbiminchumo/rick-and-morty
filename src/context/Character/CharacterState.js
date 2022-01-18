@@ -27,12 +27,10 @@ const CharacterState = (props) => {
       payload: form,
     });
 
-    window.location.replace("/characters");
+    // window.location.replace("/characters");
   };
 
-  const newCharacters = [];
-  newCharacters.push(globalState.characterState);
-  console.log(newCharacters);
+ 
   //4. RETORNO
   return (
     <CharacterContext.Provider
@@ -40,7 +38,9 @@ const CharacterState = (props) => {
         characterState: globalState.characterState,
         arrCharacter: [],
         createCharacter,
-        newCharacters,
+        
+        
+
       }}
     >
       {props.children}

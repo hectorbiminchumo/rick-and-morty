@@ -4,6 +4,7 @@ import Filter from "../Filter";
 import AllCharacters from "./AllCharacters";
 import Locations from "../Locations";
 import Episodes from "../Episodes";
+import Create from "./Create"
 
 function Characters() {
   const [characters, setCharacters] = useState([]);
@@ -59,6 +60,7 @@ function Characters() {
         cat={cat}
         setCategoria={setCategoria}
       />
+      <Create />
       {cat === "Personaje" ? (
         <AllCharacters
           text={text}

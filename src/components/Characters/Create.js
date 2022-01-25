@@ -5,8 +5,12 @@ import CharacterContext from "../../context/Character/CharacterContext";
 
 function Create() {
   
-  // const  {charactersCreated, setCharactersCreated}  = useContext(CharacterContext)
+  const  ctx  = useContext(CharacterContext)
+  const {charactersCreatedFinal, setCharactersCreatedFinal}=ctx
+
   const [charactersCreated, setCharactersCreated] = useState([])
+  
+  
   
   //1. HOOKS
   const [newCharacter, setNewCharacter] = useState({
@@ -41,10 +45,10 @@ function Create() {
     });
     setError(null);
     
-    
   };
-
-  console.log(charactersCreated);
+  
+  setCharactersCreatedFinal(charactersCreated)
+  
   return (
     <>
       

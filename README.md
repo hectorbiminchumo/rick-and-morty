@@ -1,4 +1,4 @@
-# Baufest: Challenge React
+# Challenge React
 ## Consideraciones Técnicas
 Queda a criterio del evaluado:
 - La elección del framework CSS a utilizar (bootstrap, material, etc)

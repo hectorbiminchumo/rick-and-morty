@@ -1,11 +1,11 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import CharacterContext from "../../../context/Character/CharacterContext";
 
 const AllCharacters = () => {
+  const { text, charactersFilter, charactersCreatedFilter } =
+    useContext(CharacterContext);
 
-  const {text, charactersFilter} = useContext(CharacterContext)
-
-  if (charactersFilter.length === 0)
+  if (charactersFilter.length === 0 && charactersCreatedFilter === 0)
     return <p>No hay coincidencias de personaje con "{text}"</p>;
 
   return (
@@ -26,7 +26,7 @@ const AllCharacters = () => {
                     alt=""
                   />
                   <h3 className="mt-6 text-gray-900 text-sm font-medium">
-                    {character.id} {character.name}
+                    {character.name}
                   </h3>
                   <dl className="mt-1 flex-grow flex flex-col justify-between">
                     <dt className="sr-only">Title</dt>

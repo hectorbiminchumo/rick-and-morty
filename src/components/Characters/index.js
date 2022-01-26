@@ -51,17 +51,17 @@ function Characters() {
     character.name.toLowerCase().includes(text.toLowerCase())
   );
   const locationsFilter = locations.filter((location) =>
-  location.name.toLowerCase().includes(text.toLowerCase())
+    location.name.toLowerCase().includes(text.toLowerCase())
   );
   const episodesFilter = episodes.filter((episode) =>
-  episode.name.toLowerCase().includes(text.toLowerCase())
+    episode.name.toLowerCase().includes(text.toLowerCase())
   );
   const charactersCreatedFilter = charactersCreatedFinal.filter((character) =>
-  character.name.toLowerCase().includes(text.toLowerCase())
+    character.name.toLowerCase().includes(text.toLowerCase())
   );
 
-console.log(charactersCreatedFilter);
-console.log(characters);
+  console.log(charactersCreatedFilter);
+  console.log(characters);
   return (
     <>
       <CharacterContext.Provider
@@ -75,13 +75,12 @@ console.log(characters);
           locationsFilter,
           episodesFilter,
           charactersCreatedFinal,
-          setCharactersCreatedFinal
+          setCharactersCreatedFinal,
         }}
       >
         <Filter />
         <Create />
-        <CharactersCreated/>
-
+        <CharactersCreated />
 
         {cat === "Personaje" ? (
           <AllCharacters />

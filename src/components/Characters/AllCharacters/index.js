@@ -2,17 +2,17 @@ import React, { useContext } from "react";
 import CharacterContext from "../../../context/Character/CharacterContext";
 
 const AllCharacters = () => {
-  const { text, charactersFilter, charactersCreatedFilter } =
+  const { text, charactersApiFilter, charactersCreatedFilter } =
     useContext(CharacterContext);
 
-  if (charactersFilter.length === 0 && charactersCreatedFilter === 0)
+  if (charactersApiFilter.length === 0 && charactersCreatedFilter === 0)
     return <p>No hay coincidencias de personaje con "{text}"</p>;
 
   return (
     <>
       <div className="bg-gray-700 pt-6 pr-6 pl-6">
         <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 flex-row">
-          {charactersFilter.map((character) => {
+          {charactersApiFilter.map((character,i) => {
             const numEpisode = Math.floor(
               Math.random() * character.episode.length
             );
@@ -20,7 +20,7 @@ const AllCharacters = () => {
             return (
               <li className="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200 ">
                 <div class="flex-4 flex flex-col p-8 pl-4">
-                  <img
+                  <img key={i+100}
                     className="w-32 h-32 flex-shrink-0 mx-auto rounded-full"
                     src={character.image}
                     alt=""

@@ -3,7 +3,7 @@ import CharacterContext from "../../context/Character/CharacterContext";
 
 function Create() {
   const ctx = useContext(CharacterContext);
-  const { setCharactersCreatedFinal } = ctx;
+  const { setCharactersCreatedGlobal } = ctx;
 
   const [charactersCreated, setCharactersCreated] = useState([]);
 
@@ -41,7 +41,7 @@ function Create() {
     setError(null);
   };
 
-  setCharactersCreatedFinal(charactersCreated);
+  setCharactersCreatedGlobal(charactersCreated);
 
   return (
     <>

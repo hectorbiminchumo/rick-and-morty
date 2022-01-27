@@ -3,7 +3,6 @@ import CharacterContext from "../../context/Character/CharacterContext";
 
 function Filter() {
   const { text, setText, cat, setCategoria } = useContext(CharacterContext);
-  console.log(text);
   const handleInputChange = ({ target }) => {
     setText(target.value);
     console.log(target.value);

@@ -16,7 +16,7 @@ function Characters() {
   const [text, setText] = useState("");
   const [cat, setCategoria] = useState("");
 
-  const [charactersCreatedFinal, setCharactersCreatedFinal] = useState([]);
+  const [charactersCreatedGlobal, setCharactersCreatedGlobal] = useState([]);
 
   useEffect(() => {
     const axiosCharacters = async () => {
@@ -45,23 +45,20 @@ function Characters() {
     axiosEpisode();
     axiosEpisodeSingle();
   }, []);
-  console.log(episode);
+  
 
-  const charactersFilter = characters.filter((character) =>
-    character.name.toLowerCase().includes(text.toLowerCase())
-  );
-  const locationsFilter = locations.filter((location) =>
-    location.name.toLowerCase().includes(text.toLowerCase())
-  );
-  const episodesFilter = episodes.filter((episode) =>
-    episode.name.toLowerCase().includes(text.toLowerCase())
-  );
-  const charactersCreatedFilter = charactersCreatedFinal.filter((character) =>
-    character.name.toLowerCase().includes(text.toLowerCase())
-  );
+  function FilterInfo(array) {
+    return array.filter((e) =>
+      e.name.toLowerCase().includes(text.toLocaleLowerCase())
+    );
+  }
 
-  console.log(charactersCreatedFilter);
-  console.log(characters);
+  const charactersApiFilter = FilterInfo(characters);
+  const locationsFilter = FilterInfo(locations);
+  const episodesFilter = FilterInfo(episodes);
+  const charactersCreatedFilter = FilterInfo(charactersCreatedGlobal);
+  
+
   return (
     <>
       <CharacterContext.Provider
@@ -70,12 +67,13 @@ function Characters() {
           setText,
           cat,
           setCategoria,
-          charactersFilter,
+          charactersApiFilter,
           charactersCreatedFilter,
           locationsFilter,
           episodesFilter,
-          charactersCreatedFinal,
-          setCharactersCreatedFinal,
+          charactersCreatedGlobal,
+          setCharactersCreatedGlobal,
+          episode
         }}
       >
         <Filter />

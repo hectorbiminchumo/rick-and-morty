@@ -30,12 +30,12 @@ function Header() {
 
                     
 
-                    <a
-                      href="/Characters"
+                    <Link
+                      to="/characters"
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
                       Characters
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

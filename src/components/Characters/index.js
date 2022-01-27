@@ -78,16 +78,20 @@ function Characters() {
       >
         <Filter />
         <Create />
-        <CharactersCreated />
+        
 
         {cat === "Personaje" ? (
+          <>
+          <CharactersCreated />
           <AllCharacters />
+          </>
         ) : cat === "Ubicacion" ? (
           <Locations />
         ) : cat === "Episodio" ? (
           <Episodes />
         ) : (
           <>
+            <CharactersCreated/>
             <AllCharacters />
             <Locations />
             <Episodes />
